@@ -1,0 +1,26 @@
+{
+    "prefix": "-",
+    "all_teams": [
+        "Arsenal",
+        "AstonVilla",
+        "Brighton",
+        "Burnley" ,
+        "Chelsea" ,
+        "CrystalPalace" ,
+        "Everton" ,
+        "Fulham" ,
+        "Leeds" ,
+        "Leicester" ,
+        "Liverpool" ,
+        "ManchesterCity" ,
+        "ManchesterUnited" ,
+        "Newcastle",
+        "Sheffield",
+        "Southampton" ,
+        "Spurs",
+        "WestBromwich" ,
+        "WestHam" ,
+        "Wolves"
+    ],
+    "master":"325893549071663104"
+}
