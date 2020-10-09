@@ -5,13 +5,13 @@ exports.run = (client, message, args) =>{
    
 
     if(!rMember) 
-        return message.channel.send("Couldn't find that user, yo.");
+        return message.channel.send("Couldn't find that user.");
 
-    let role = args.join(" ").slice(23);
+    let role = message.mentions.roles.first();
     if(!role) 
         return message.channel.send("Specify a role!");
 
-    let gRole = message.guild.roles.cache.find(roles => roles.name === role);
+    let gRole = role;
     if(!gRole) 
         return message.channel.send("Couldn't find that role.");
 
