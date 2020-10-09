@@ -1,7 +1,7 @@
 exports.run = (client, message, args) =>{
     let rMember = message.guild.member(message.mentions.users.first()) || message.guild.members.cache.get(args[0]);
 
-    if(!message.member.hasPermission("MANAGE_ROLES_OR_PERMISSIONS")){
+    if(!message.member.hasPermission("MANAGE_ROLES")){
         message.channel.send("You don't have the permissions to use this command!");
     }
     
