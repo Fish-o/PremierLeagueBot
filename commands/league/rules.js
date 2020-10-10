@@ -46,5 +46,5 @@ exports.help = {
     category: __dirname.split(path.sep).pop(),
     name:"rules",
     description: "Shows the rules of this server",
-    usage: "-rules"
+    usage: "rules"
 };

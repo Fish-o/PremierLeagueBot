@@ -6,25 +6,25 @@ exports.run = (client, message, args) => {
     const embed2 = new Discord.MessageEmbed()
     .setTitle('**__Roles__**')
     .setDescription(`These Are The List Of Team Roles And Also The Commands You Use To Get Them.          
-             **^Arsenal** - Joins Arsenal
-             **^AstonVilla** - Joins Aston Villa
-             **^Brighton** - Joins Brighton & Hove Albion
-             **^Burnley** - Joins Burnley
-             **^Chelsea** - Joins Chelsea
-             **^CrystalPalace** - Joins Crystal Palace
-             **^Everton** - Joins Everton
-             **^Fulham** -Joins Fulham 
-             **^Leeds** - Joins Leeds United
-             **^Leicester** - Joins Leicester City
-             **^ManchesterCity** - Joins Manchester City
-             **^ManchesterUnited** - Joins Manchester United
-             **^Newcastle** - Joins Newcastle United
-             **^Sheffield** - Joins Sheffield United
-             **^Southampton** - Joins Southampton
-             **^Spurs** - Joins Tottenham Hotspur
-             **^WestBromwich** - Joins WestBromwich Albion
-             **^WestHam** - Joins West Ham United
-             **^Wolves** - Joins Wolverhampton Wanderers             
+             **${client.config.prefix}Arsenal** - Joins Arsenal
+             **${client.config.prefix}AstonVilla** - Joins Aston Villa
+             **${client.config.prefix}Brighton** - Joins Brighton & Hove Albion
+             **${client.config.prefix}Burnley** - Joins Burnley
+             **${client.config.prefix}Chelsea** - Joins Chelsea
+             **${client.config.prefix}CrystalPalace** - Joins Crystal Palace
+             **${client.config.prefix}Everton** - Joins Everton
+             **${client.config.prefix}Fulham** -Joins Fulham 
+             **${client.config.prefix}Leeds** - Joins Leeds United
+             **${client.config.prefix}Leicester** - Joins Leicester City
+             **${client.config.prefix}ManchesterCity** - Joins Manchester City
+             **${client.config.prefix}ManchesterUnited** - Joins Manchester United
+             **${client.config.prefix}Newcastle** - Joins Newcastle United
+             **${client.config.prefix}Sheffield** - Joins Sheffield United
+             **${client.config.prefix}Southampton** - Joins Southampton
+             **${client.config.prefix}Spurs** - Joins Tottenham Hotspur
+             **${client.config.prefix}WestBromwich** - Joins WestBromwich Albion
+             **${client.config.prefix}WestHam** - Joins West Ham United
+             **${client.config.prefix}Wolves** - Joins Wolverhampton Wanderers             
     These commands sould strictly be used in <#763390052688199692> !`)
     .setColor('#66FFB2');
     message.channel.send(embed1);
@@ -45,5 +45,5 @@ exports.help = {
     category: __dirname.split(path.sep).pop(),
     name:"roles",
     description: "Shows a list of all roles you are able to assign yourself",
-    usage: "-roles"
+    usage: "roles"
 };

@@ -97,5 +97,5 @@ exports.help = {
     category: __dirname.split(path.sep).pop(),
     name:"color",
     description: "Assign yourself a team color",
-    usage: "-color"
+    usage: "color"
 };
