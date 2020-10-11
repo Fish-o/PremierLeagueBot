@@ -36,13 +36,12 @@ exports.run = (client, message, args) =>{
 
     let serverembed = new Discord.MessageEmbed()
         .setColor("#9400D3")
-        .setAuthor(client.config.author, client.user.displayAvatarURL)
-        .addField(`Version`,client.config.version, true)
+        //.setAuthor(client.config.author, client.user.displayAvatarURL)
+        //.addField(`Version`,client.config.version, true)
         //.addField(`Library`,`Discord.js` , true)
         .addField(`Creator`,`Fish`, true)
         .addField(`Servers`, `${servers}`, true)
         .addField(`Users`, `${users}`, true)
-        .addField(`Invite`, `[Check the FishyBot website!](https://fishman.live/)`, true)
         .setFooter(`Uptime: ${uptime}`);
 
     message.channel.send(serverembed);    
