@@ -1,6 +1,6 @@
 
 const Discord = require('discord.js');
-musconst cooldown = new Map();
+const cooldown = new Map();
 const cooldown_seconds = 3600;
 const ms = require('ms');
 
