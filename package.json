@@ -17,6 +17,12 @@
     "grapheme-splitter": "^1.0.4",
     "ms": "^2.1.2",
     "bad-words": "^3.0.3",
-    "forever-monitor":"^3.0.1"
+    "forever-monitor":"^3.0.1",
+
+    "yql": "^1.0.2",
+    "yt-search": "^2.3.1",
+    "ytdl-core": "^2.1.5",
+    "ffmpeg-static": "^4.2.2",
+    "@discordjs/opus": "^0.3.2"
   }
 }
