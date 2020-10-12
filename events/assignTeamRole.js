@@ -1,11 +1,11 @@
 
 const Discord = require('discord.js');
 const cooldown = new Map();
-const cooldown_seconds = 3600;
+const cooldown_seconds = 6000;
 const ms = require('ms');
 
 
-
+//https://changaco.oy.lc/unicode-progress-bars/
 var bar_styles = [
     '▁▂▃▄▅▆▇█',
     '⣀⣄⣤⣦⣶⣷⣿',
@@ -52,7 +52,29 @@ function make_bar(p, bar_style, min_size, max_size) {
     return {str: r, delta: min_delta};
 }
 
-
+function generate() {
+    var r1 = document.getElementById('sans-serif-body'),
+        r2 = document.getElementById('serif-body'),
+        p = new Number(document.getElementById('percentage').value),
+        min_size = new Number(document.getElementById('min-size').value),
+        max_size = new Number(document.getElementById('max-size').value);
+    document.getElementById('sans-serif').style.display = 'table';
+    document.getElementById('serif').style.display = 'table';
+    r1.innerHTML = '';
+    r2.innerHTML = '';
+    var bars = [];
+    for(var i=0; i<bar_styles.length; i++) {
+        bars.push(make_bar(p, bar_styles[i], min_size, max_size));
+    }
+    bars.sort(function (a, b) { return a.delta - b.delta; });
+    for(var i=0; i<bars.length; i++) {
+        bar = '<td>'+bars[i].str+' '+p+'%</td>';
+        delta = '<td>'+bars[i].delta.toPrecision(2)+'%</td>';
+        row = '<tr>'+repeat(bar, 3)+delta+'</tr>'
+        r1.innerHTML += row;
+        r2.innerHTML += row;
+    }
+}
 
 exports.event = async (client, message) => {
     const all_teams = client.config.all_teams
@@ -77,12 +99,12 @@ exports.event = async (client, message) => {
 
                 if (cooldown.has(message.author.id) && !message.member.hasPermission('ADMINISTRATOR')) {
 
-                    const timeSince = cooldown.get(message.author.id) - Date.now();
-                    const timeRemaining_ms = cooldown_seconds*1000 - timeSince;
+                    const timeSince_ms = cooldown.get(message.author.id) - Date.now();
+                    const timeRemaining_ms = cooldown_seconds*1000 - timeSince_ms;
                     const percentage_remaining = Math.floor(100 - (cooldown_seconds*1000 / timeRemaining_ms) * 100);
 
                     
-                    return message.channel.send("Please wait "+ms(timeRemaining_ms, { long: true })+', progress: '+make_bar(percentage_remaining, '⣀⣄⣤⣦⣶⣷⣿', 1, 20));
+                    return message.channel.send(`Please wait ${ms(timeRemaining_ms, { long: true })}, progress: ${make_bar(percentage_remaining, '⣀⣄⣤⣦⣶⣷⣿', 1, 20).str} ${percentage_remaining}%`);
                 }
 
                 const team_role = guild.roles.cache.find(guild_role => guild_role.name.toLowerCase().replace(' ', '') == team_name.toLowerCase().replace(' ', ''))
