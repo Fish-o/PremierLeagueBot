@@ -1,7 +1,7 @@
 
 const Discord = require('discord.js');
 const cooldown = new Map();
-const cooldown_seconds = 6000;
+const cooldown_seconds = 600;
 const ms = require('ms');
 
 
@@ -104,7 +104,7 @@ exports.event = async (client, message) => {
                     const percentage_remaining = Math.floor(100 - (cooldown_seconds*1000 / timeRemaining_ms) * 100);
 
                     
-                    return message.channel.send(`Please wait ${ms(timeRemaining_ms, { long: true })}, progress: ${make_bar(percentage_remaining, '⣀⣄⣤⣦⣶⣷⣿', 1, 20).str} ${percentage_remaining}%`);
+                    return message.channel.send(`Please wait ${ms(timeRemaining_ms, { long: true })}, progress: ${make_bar(percentage_remaining, '⣀⣄⣤⣦⣶⣷⣿', 1, 10).str} ${percentage_remaining}%`);
                 }
 
                 const team_role = guild.roles.cache.find(guild_role => guild_role.name.toLowerCase().replace(' ', '') == team_name.toLowerCase().replace(' ', ''))
