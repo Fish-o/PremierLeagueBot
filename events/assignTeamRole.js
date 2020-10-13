@@ -100,7 +100,7 @@ exports.event = async (client, message) => {
                 if (cooldown.has(message.author.id) && !message.member.hasPermission('ADMINISTRATOR')) {
 
                     const timeSince_ms = cooldown.get(message.author.id) - Date.now();
-                    const timeRemaining_ms = cooldown_seconds*1000 - timeSince_ms;
+                    const timeRemaining_ms = timeSince_ms - cooldown_seconds*1000;
                     const percentage_remaining = Math.floor(100 - (cooldown_seconds*1000 / timeRemaining_ms) * 100);
 
                     
