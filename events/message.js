@@ -23,9 +23,6 @@ exports.event = async (client, message) => {
         client.sendinfo(`Uptime: ${client.uptime / 1000}`)
     }
 
-    // Getting database uri
-    const uri = client.config.dbpath;
-    
     // I have no idea what this does
     let ops = {
         active: active
@@ -41,6 +38,8 @@ exports.event = async (client, message) => {
     if (message.webhookID) return;
     if (message.channel instanceof Discord.DMChannel) return message.reply("blub".repeat(Math.ceil(Math.random()*100)))
     
+    
+
     
     else{
         // Get prefix
@@ -71,6 +70,9 @@ exports.event = async (client, message) => {
 
 
         // Check if the feature is enabled
+        if(!client.config.bot_channels.includes(message.channel.id) && message.member.hasPermission('ADMINISTRATOR'))
+        return message.channel.send('You arent allowed to send commands in this channel');
+
 
         var succes = true;
         if(!client.bypass || message.author.id !== client.config.master){
